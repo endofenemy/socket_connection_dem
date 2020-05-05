@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="transaction"
+            type="com.cityflowdemo.model.Transaction" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/connection_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorWhite"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:text="@{`Time : ` +transaction.timeInDisplay}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorText"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorWhite"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:text="@{`Amount : $` +transaction.amount}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorText"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/connection_status" />
+
+            <TextView
+                android:id="@+id/hash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorWhite"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:text="@{transaction.hash}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
